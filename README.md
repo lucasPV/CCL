@@ -1,10 +1,10 @@
 # Contextual Contrastive Loss (CCL)
 
-**Paper: [Contrastive Loss based on Contextual Similarity for Image Classification](ccl.lucasvalem.com)**
+**Paper: [Contrastive Loss based on Contextual Similarity for Image Classification](http://ccl.lucasvalem.com)**
 
 **Authors:** [Lucas Pascotti Valem](http://www.lucasvalem.com), [Daniel Carlos Guimarães Pedronette](http://www.ic.unicamp.br/~dcarlos/), [Mohand Said Allili](http://w3.uqo.ca/allimo01/)
 
-**In 19th International Symposium on Visual Computing ([ISVC 2024](isvc.net)), Lake Tahoe, NV, USA**
+**In 19th International Symposium on Visual Computing ([ISVC 2024](http://isvc.net)), Lake Tahoe, NV, USA**
 
 ----------------------
 * [Overview](#overview)
@@ -18,9 +18,14 @@
 
 ## Overview
 
-This project is a fork of [HobbitLong/SupContrast](https://github.com/HobbitLong/SupContrast). It modifies the original implementation by incorporating the [Contextual Contrastive Loss (CCL)](ccl.lucasvalem.com) as introduced in the paper *'Contrastive Loss based on Contextual Similarity for Image Classification'*. This repository currently includes the CCL loss function and the main files used in the paper. It is intended to be continuously maintained and improved over time.
+This project is a fork of [HobbitLong/SupContrast](https://github.com/HobbitLong/SupContrast). It modifies the original implementation by incorporating the [Contextual Contrastive Loss (CCL)](http://ccl.lucasvalem.com) as introduced in the paper *'Contrastive Loss based on Contextual Similarity for Image Classification'*. This repository currently includes the CCL loss function and the main files used in the paper. It is intended to be continuously maintained and improved over time.
 
-- **CCL Loss Function:** The CCL loss function is implemented in the [`losses_ccl.py` file](https://github.com/lucasPV/CCL/blob/master/losses_ccl.py) and is available for use under the BSD-2-Clause license. If you use it or incorporate it into your project, please [cite our work](#reference).
+- **CCL Loss Function:** The CCL loss function is implemented in the [`losses_ccl.py`](https://github.com/lucasPV/CCL/blob/master/losses_ccl.py) file and is available for use under the BSD-2-Clause license. If you use it or incorporate it into your project, please [cite our work](#reference).
+
+The comparison between CCL and SupCon demonstrates the superiority of CCL. For more, please check the [supplementary material](http://ccl.lucasvalem.com) and [our paper](#reference).
+<p align="center">
+  <img src="figures/improvement.jpg" width="700">
+</p>
 
 ## Running Instructions
 
@@ -32,7 +37,7 @@ To prepare the environment with all the dependencies, please follow the same ste
 
 ### 1) Metric Learning Pre-training with SupCon
 
-As an initial step, as described in the paper, it is required to run a pre-training of 10 epochs with the original SupCon loss to obtain the initial weights and other structures required for the next step. The code to generate these output structures is not yet available in this repository. To facilitate the reproducibility of the results, all those used in the paper can be downloaded here: [Google Drive](https://drive.google.com/drive/folders/1SZWqGE1zDtS1U1SBOzX08uB__uYOgs75?usp=sharing). Below there is an explanation of each:
+As an initial step, as described in the paper, a pre-training of 10 epochs with the original SupCon loss is required to obtain the initial weights and other structures needed for the next step. The code to generate these output structures is not yet available in this repository. To facilitate the reproducibility of the results, all those used in the paper can be downloaded here: [Google Drive](https://drive.google.com/drive/folders/1SZWqGE1zDtS1U1SBOzX08uB__uYOgs75?usp=sharing). Below there is an explanation of each:
 * **splits**: These files specify the division of each split for each dataset. They contain the image path of each image in the split. For convenience, they also include the labels of each image in string format.
 * **pre-trained weights**: These are the weights obtained as the output of the pre-training stage.
 * **ranked lists**: These refer to the neighborhood sets. They contain the top-k closest neighbors of each image in the training set.
